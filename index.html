@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blender.org - Home of the Blender project - Free and Open 3D Creatio...</title>
+
+    <link rel="shortcut icon" href="images/blender-favicon.png" type="image/x-icon">
+
+    <!-- REMIX ICON CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <!-- LOCOMOTIVE CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+    
+    <!-- SHERY JS CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" /> 
+    
+    <!--BOX ICON CDN-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- LINKING CSS FILE -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="loader w-full fixed h-screen z-[999] bg-[#0C0B0B] text-white flex justify-center items-center">
+        <!-- <svg class="loader-svg absolute" width="100%" height="100%">
+            <rect x="40%" y="60%" width="20%" height="20%"></rect>
+        </svg> -->
+        <div class="loader-anime bg-[#2d2d2d] w-full h-screen absolute right-[-100%]"></div>
+        <div class="loader-title text-9xl max-sm:text-6xl font-bold pr-[10%] hidden">
+            <span>B</span>
+            <span>L</span>
+            <span>E</span>
+            <span>N</span>
+            <span>D</span>
+        </div>
+        <h1 class="loader-r-text max-sm:text-6xl text-9xl font-bold absolute text-[#F4792B] top-1/2 left-1/2 max-sm:pl-[7rem] -translate-x-1/2 -translate-y-1/2">
+            R
+            <div class="upr-stripe"></div>
+            <div class="lwr-stripe"></div>
+        </h1>
+    </div>
+    <div class="cursor absolute z-[9999] w-[6rem] h-[6rem] rounded-full flex justify-center items-center">
+        <div class="cursor-dot w-2 h-2 rounded-full bg-white"></div>
+        <div class="lft-crsr-line crsr-lines"></div>
+        <div class="rgt-crsr-line crsr-lines"></div>
+    </div>
+    <div class="glowing-crsr w-[25rem] h-[25rem] absolute z-[10]">
+    </div>
+    <div class="main bg-[#0C0B0B]">
+
+        <div class="landing-page relative z-[200] w-full h-screen flex justify-end items-end py-2 px-2 bg-[#0C0B0B] text-white max-sm:hidden">
+            <div class="blender-logo absolute top-2 left-[7%] flex items-center justify-center gap-2">
+                <img class="blender-logo-img w-[4vw]" src="images/blender-icon.png" alt="">
+                <div class="blender-logo-title flex items-center justify-center pt-1">
+                    <h2 class="logo-letters">B</h2>
+                    <h2 class="logo-letters">l</h2>
+                    <h2 class="logo-letters">e</h2>
+                    <h2 class="logo-letters">n</h2>
+                    <h2 class="logo-letters">d</h2>
+                    <h2 class="logo-letters">e</h2>
+                    <h2 class="logo-letters">r</h2>
+                </div>
+            </div>
+            <div class="img-container absolute w-[94%] h-[88%] rounded-[1rem] overflow-hidden">
+                <div class="corners"></div>
+                <video class="landing-img loop object-cover object-center w-full h-full scale-[1.2] hover:scale-105" autoplay loop muted src="videos/landing-video.webm"></video>
+
+            </div>
+
+            <div class="top-part absolute top-0 w-4/5 h-[10.5%] flex items-center justify-center gap-16">
+                <a class="rolling-text" href="#">Features</a>
+                <a class="rolling-text" href="#">Support</a>
+                <a class="rolling-text" href="#">About</a>
+                <a class="rolling-text" href="#">Get Involved</a>
+                <a class="rolling-text" href="#">Jobs</a>
+            </div>
+
+            <button class="download-btn z-1 absolute top-[3%] right-[5%] px-4 py-2 text-[1vw] border-2 overflow-hidden hover:text-black border-white rounded-[4rem]">Download</button>
+
+            <div class="left-part absolute top-0 left-0 w-[6%] h-full flex flex-col items-center justify-center gap-2">
+                <div class="media-buttons">
+                    <a href="#" class="media-links">
+                        <i class='bx bxl-youtube'></i>
+                    </a>
+                    <a href="#" class="media-links" >
+                        <i  class='bx bxl-instagram' ></i>
+                    </a>
+                    <a href="#" class="media-links">
+                        <i class='bx bxl-facebook' ></i>
+                    </a>
+                    <a href="#" class="media-links">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                    <a href="#" class="media-links">
+                        <i class='bx bxl-mastodon' ></i>
+                    </a>
+                </div>
+            </div>
+            <div class="landing-content">
+                <p class="text-[1.2vw] leading-tight text-[#dadada]">Blender, praised by VFX professionals, provides excellent camera and object tracking. Seamlessly import, track, mask footage, and view live camera movements in your 3D scenes.</p>
+            </div>
+
+            <div class="btm-left absolute bottom-[-4%] pt-4 pb-12 px-10 rounded-[6rem] left-[2%] flex gap-4 text-white bg-[--darkColor]">
+                <button class="btm-nav-btns relative border-2 border-white rounded-3xl px-4 py-2">What's New</button>
+                <button class="btm-nav-btns relative border-2 border-white rounded-3xl px-4 py-2">Community</button>
+                <button class="btm-nav-btns relative border-2 border-white rounded-3xl px-4 py-2">Donate</button>
+            </div>
+
+
+        </div>
+
+        
+        <div class="landing-page-mobile relative w-full h-screen bg-slate-900 hidden max-sm:block overflow-hidden">
+            <div class="blender-logo-mbl z-[10] absolute top-[2.5%] left-[4%] flex items-center justify-center gap-2">
+                <img class="w-12 mb-2" src="images/blender-icon.png" alt="">
+                <h1 class="font-[heebo] text-[7vw] text-white font-bold">Blender</h1>
+            </div>
+            <video class="object-cover w-full h-screen absolute top-0 left-0" autoplay muted loop src="videos/mobile-landing-vid.mp4"></video>
+            <div class="nav-open-btn z-[10] border-2 border-white rounded-full w-[3rem] h-[3rem] absolute top-[2%] right-[5%] flex items-center justify-center">
+                <i class="ri-menu-4-line text-white text-2xl"></i>
+            </div>
+            <div class="nav-menu font-[antique-olive]  text-white flex-col absolute h-screen w-full z-[300] bg-[--darkColor] items-center justify-center pb-20 hidden">
+                <i class="ri-close-large-line absolute top-[4%] right-[7%] text-[8vw] font-bold nav-close-btn"></i>
+                <a href="#">Download</a>
+                <a href="#">Features</a>
+                <a href="#">Support</a>
+                <a href="#">About</a>
+                <a href="#">Community</a>
+                <a href="#">Donate</a>
+            </div>
+        </div>
+
+
+        <div class="blender-studio-mobile hidden max-sm:block">
+            <h1 class="text-white text-[10vw] w-full text-center font-[antique-olive] tracking-tighter py-10">Blender Studio</h1>
+            <div class="bs-mbl-container">
+                <div class="bs-mbl-cards">
+                    <div class="bs-cards-top">
+                        <div class="bs-vid-container">
+                            <video class="monkey" autoplay muted loop src="videos/blender-studio-videos/bsvid1.mp4"></video>
+                        </div>
+                    </div>
+                    <div class="bs-cards-btm">
+                        <h2>Baby Suzanne in <br> Grease Pencil</h2>
+                    </div>
+                </div>
+                <div class="bs-mbl-cards">
+                    <div class="bs-cards-top">
+                        <div class="bs-vid-container">
+                            <video autoplay muted loop poster="images/blender-studio-images/bsposter2.jpg" src="videos/blender-studio-videos/bsvid2.mp4"></video>
+                        </div>
+                    </div>
+                    <div class="bs-cards-btm">
+                        <h2>Sprite Fright: Sculpting <br> Advice</h2>
+                    </div>
+                </div>
+                <div class="bs-mbl-cards">
+                    <div class="bs-cards-top">
+                        <div class="bs-vid-container">
+                            <video autoplay muted loop src="videos/blender-studio-videos/bsvid3.mp4"></video>
+                        </div>
+                    </div>
+                    <div class="bs-cards-btm">
+                        <h2>Combining 2D Animation <br> in a 3D Environment</h2>
+                    </div>
+                </div>
+                <div class="bs-mbl-cards">
+                    <div class="bs-cards-top">
+                        <div class="bs-vid-container">
+                            <video autoplay muted loop src="videos/blender-studio-videos/bsvid4.mp4"></video>
+                        </div>
+                    </div>
+                    <div class="bs-cards-btm">
+                        <h2>Sprite Fright: <br> Set Dressing Tips</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="blender-studio-section w-full h-screen overflow-hidden max-sm:hidden">
+            <div class="bs-container w-full h-full whitespace-nowrap">
+                <div class="bs-title relative w-3/5 h-full text-white inline-block">
+                    <h1 class="text-[13vw] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 tracking-tighter leading-none font-[antique-olive]">Blender <br>Studio</h1>
+                </div>
+
+                <div class="bs-cards bs-cards1">
+                    <div class="bs-dot bs-dot1"></div>
+                    <div class="card-details card-details1">
+                        
+                        <div class="bs-videos">
+                            <!-- <img class="card-img" src="images/blender-studio-images/bs-img1.jpg" alt=""> -->
+                            <video autoplay muted loop class="card-vid monkey" poster="images/blender-studio-images/bs-img1.jpg">
+                                <source src="videos/blender-studio-videos/bsvid1.mp4">
+                            </video>
+                        </div>
+                        
+                        <div class="card-text card-text1">
+                            <h1>Baby Suzanne in <br> Grease Pencil</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bs-cards bs-cards2">
+                    <div class="bs-dot bs-dot2"></div>
+                    <div class="card-details card-details2">
+                        <div class="bs-videos">
+                            <video autoplay muted loop class="card-vid" poster="images/blender-studio-images/bsposter2.jpg">
+                                <source src="videos/blender-studio-videos/bsvid2.mp4">
+                                  
+                            </video>
+                        </div>
+    
+                        
+                        <div class="card-text card-text2">
+                            <h1>Sprite Fright: Sculpting <br> Advice</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="bs-cards bs-cards3">
+                    <div class="bs-dot bs-dot3"></div>
+                    <div class="card-details card-details3">
+                        <div class="bs-videos">
+                            <video autoplay muted loop class="card-vid" poster="images/blender-studio-images/bg-img3.jpg">
+                                <source src="videos/blender-studio-videos/bsvid3.mp4">
+                                  
+                             </video>
+
+                        </div>
+    
+                        
+                        <div class="card-text card-text3">
+                            <h1>Combining 2D Animation <br> in a 3D Environment</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="bs-cards bs-cards4">
+                    <div class="bs-dot bs-dot4"></div>
+                    <div class="card-details card-details4">
+                        <div class="bs-videos">
+                            <video autoplay muted loop class="card-vid" poster="images/blender-studio-images/bsposter4.jpg">
+                                <source src="videos/blender-studio-videos/bsvid4.mp4">
+                                  
+                            </video>
+
+                        </div>
+    
+                        
+                        <div class="card-text card-text4">
+                            <h1>Sprite Fright: <br> Set Dressing Tips</h1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="open-source-section w-full h-[120vh] max-sm:h-[100vh] flex  flex-col items-center justify-center bg-[--darkColor] overflow-hidden max-sm:hidden">
+            <!-- <div class="opener-div absolute w-[20%] h-[40%] bg-slate-800"></div> -->
+            <div class="os-content relative h-[9.7%] mb-20">
+                <svg class="title-opener-start absolute w-[4.5rem] max-sm:w-[2rem] top-[0%] left-[-5rem]" viewBox="0 0 53 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M44.0421 45.2262C48.5484 50.1235 53 56.7306 53 69L46.8167 69C46.8167 58.005 42.9365 52.4511 39.1111 48.2938C38.3582 47.4757 37.6164 46.7216 36.8662 45.959C36.6141 45.7028 36.361 45.4455 36.1063 45.1846C35.1197 44.174 34.1244 43.1236 33.2522 42.0143C31.4612 39.7365 30.1531 37.1644 30.1531 33.839C30.1531 30.5094 31.4647 27.9608 33.2768 25.7279C34.1571 24.6432 35.1598 23.6276 36.1505 22.6583C36.4437 22.3715 36.7332 22.0911 37.021 21.8125C37.7362 21.12 38.44 20.4385 39.1593 19.6967C42.9641 15.7731 46.8167 10.5675 46.8167 9.34478e-07L53 1.52453e-06C53 11.9037 48.5209 18.1981 43.9939 22.8664C43.2108 23.6739 42.4116 24.4478 41.6752 25.1609C41.4014 25.426 41.1364 25.6826 40.884 25.9295C39.922 26.8707 39.1021 27.7097 38.4202 28.55C37.1078 30.167 36.3365 31.7491 36.3365 33.839C36.3365 35.9332 37.1113 37.5579 38.4448 39.254C39.1348 40.1315 39.962 41.0122 40.9283 42.002C41.1533 42.2325 41.3873 42.4703 41.6279 42.7149C42.3922 43.4917 43.2228 44.3359 44.0421 45.2262Z" fill="#8EA6B4"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M28.9655 45.2262C33.4718 50.1235 37.9234 56.7306 37.9234 69L31.7401 69C31.7401 58.005 27.8599 52.4511 24.0345 48.2938C23.2817 47.4757 22.5398 46.7216 21.7896 45.959C21.5375 45.7028 21.2844 45.4455 21.0297 45.1846C20.0431 44.174 19.0478 43.1236 18.1756 42.0143C16.3846 39.7365 15.0765 37.1644 15.0765 33.839C15.0765 30.5094 16.3881 27.9608 18.2002 25.7279C19.0805 24.6432 20.0832 23.6276 21.0739 22.6583C21.3671 22.3715 21.6566 22.0911 21.9444 21.8125C22.6596 21.12 23.3634 20.4385 24.0827 19.6967C27.8875 15.7731 31.7401 10.5675 31.7401 9.34478e-07L37.9234 1.52453e-06C37.9234 11.9037 33.4443 18.1981 28.9173 22.8664C28.1342 23.6739 27.335 24.4478 26.5986 25.1609C26.3248 25.426 26.0598 25.6826 25.8074 25.9295C24.8454 26.8707 24.0255 27.7097 23.3436 28.55C22.0312 30.167 21.2599 31.7491 21.2599 33.839C21.2599 35.9332 22.0347 37.5579 23.3682 39.254C24.0582 40.1315 24.8854 41.0122 25.8517 42.002C26.0767 42.2325 26.3107 42.4703 26.5513 42.7149C27.3156 43.4917 28.1462 44.3359 28.9655 45.2262Z" fill="#8EA6B4"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M13.8889 45.2262C18.3953 50.1235 22.8469 56.7306 22.8469 69L16.6635 69C16.6635 58.005 12.7833 52.4511 8.95792 48.2938C8.20508 47.4757 7.46326 46.7216 6.713 45.959C6.46089 45.7028 6.20783 45.4455 5.95308 45.1846C4.96657 44.174 3.97124 43.1236 3.09899 42.0143C1.30808 39.7365 -2.41466e-05 37.1644 -2.55745e-05 33.839C-2.70019e-05 30.5094 1.31155 27.9608 3.12366 25.7279C4.00395 24.6432 5.00659 23.6276 5.99731 22.6583C6.29048 22.3715 6.58007 22.0911 6.86782 21.8125C7.58298 21.12 8.2868 20.4385 9.00611 19.6967C12.8109 15.7731 16.6635 10.5675 16.6635 9.34478e-07L22.8469 1.52453e-06C22.8469 11.9037 18.3677 18.1981 13.8407 22.8664C13.0577 23.6739 12.2584 24.4478 11.522 25.1609C11.2483 25.426 10.9832 25.6826 10.7309 25.9295C9.76884 26.8707 8.94891 27.7097 8.26699 28.55C6.95468 30.167 6.18331 31.7491 6.18331 33.839C6.18331 35.9332 6.95815 37.5579 8.29166 39.254C8.98162 40.1315 9.80886 41.0122 10.7751 42.002C11.0001 42.2325 11.2342 42.4703 11.4747 42.7149C12.2391 43.4917 13.0697 44.3359 13.8889 45.2262Z" fill="#8EA6B4"></path>
+                </svg>
+                <svg class="title-opener absolute w-[4.5rem] max-sm:w-[2rem] bottom-0 right-[-5rem] rotate-[180deg]" viewBox="0 0 53 69" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M44.0421 45.2262C48.5484 50.1235 53 56.7306 53 69L46.8167 69C46.8167 58.005 42.9365 52.4511 39.1111 48.2938C38.3582 47.4757 37.6164 46.7216 36.8662 45.959C36.6141 45.7028 36.361 45.4455 36.1063 45.1846C35.1197 44.174 34.1244 43.1236 33.2522 42.0143C31.4612 39.7365 30.1531 37.1644 30.1531 33.839C30.1531 30.5094 31.4647 27.9608 33.2768 25.7279C34.1571 24.6432 35.1598 23.6276 36.1505 22.6583C36.4437 22.3715 36.7332 22.0911 37.021 21.8125C37.7362 21.12 38.44 20.4385 39.1593 19.6967C42.9641 15.7731 46.8167 10.5675 46.8167 9.34478e-07L53 1.52453e-06C53 11.9037 48.5209 18.1981 43.9939 22.8664C43.2108 23.6739 42.4116 24.4478 41.6752 25.1609C41.4014 25.426 41.1364 25.6826 40.884 25.9295C39.922 26.8707 39.1021 27.7097 38.4202 28.55C37.1078 30.167 36.3365 31.7491 36.3365 33.839C36.3365 35.9332 37.1113 37.5579 38.4448 39.254C39.1348 40.1315 39.962 41.0122 40.9283 42.002C41.1533 42.2325 41.3873 42.4703 41.6279 42.7149C42.3922 43.4917 43.2228 44.3359 44.0421 45.2262Z" fill="#8EA6B4"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M28.9655 45.2262C33.4718 50.1235 37.9234 56.7306 37.9234 69L31.7401 69C31.7401 58.005 27.8599 52.4511 24.0345 48.2938C23.2817 47.4757 22.5398 46.7216 21.7896 45.959C21.5375 45.7028 21.2844 45.4455 21.0297 45.1846C20.0431 44.174 19.0478 43.1236 18.1756 42.0143C16.3846 39.7365 15.0765 37.1644 15.0765 33.839C15.0765 30.5094 16.3881 27.9608 18.2002 25.7279C19.0805 24.6432 20.0832 23.6276 21.0739 22.6583C21.3671 22.3715 21.6566 22.0911 21.9444 21.8125C22.6596 21.12 23.3634 20.4385 24.0827 19.6967C27.8875 15.7731 31.7401 10.5675 31.7401 9.34478e-07L37.9234 1.52453e-06C37.9234 11.9037 33.4443 18.1981 28.9173 22.8664C28.1342 23.6739 27.335 24.4478 26.5986 25.1609C26.3248 25.426 26.0598 25.6826 25.8074 25.9295C24.8454 26.8707 24.0255 27.7097 23.3436 28.55C22.0312 30.167 21.2599 31.7491 21.2599 33.839C21.2599 35.9332 22.0347 37.5579 23.3682 39.254C24.0582 40.1315 24.8854 41.0122 25.8517 42.002C26.0767 42.2325 26.3107 42.4703 26.5513 42.7149C27.3156 43.4917 28.1462 44.3359 28.9655 45.2262Z" fill="#8EA6B4"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M13.8889 45.2262C18.3953 50.1235 22.8469 56.7306 22.8469 69L16.6635 69C16.6635 58.005 12.7833 52.4511 8.95792 48.2938C8.20508 47.4757 7.46326 46.7216 6.713 45.959C6.46089 45.7028 6.20783 45.4455 5.95308 45.1846C4.96657 44.174 3.97124 43.1236 3.09899 42.0143C1.30808 39.7365 -2.41466e-05 37.1644 -2.55745e-05 33.839C-2.70019e-05 30.5094 1.31155 27.9608 3.12366 25.7279C4.00395 24.6432 5.00659 23.6276 5.99731 22.6583C6.29048 22.3715 6.58007 22.0911 6.86782 21.8125C7.58298 21.12 8.2868 20.4385 9.00611 19.6967C12.8109 15.7731 16.6635 10.5675 16.6635 9.34478e-07L22.8469 1.52453e-06C22.8469 11.9037 18.3677 18.1981 13.8407 22.8664C13.0577 23.6739 12.2584 24.4478 11.522 25.1609C11.2483 25.426 10.9832 25.6826 10.7309 25.9295C9.76884 26.8707 8.94891 27.7097 8.26699 28.55C6.95468 30.167 6.18331 31.7491 6.18331 33.839C6.18331 35.9332 6.95815 37.5579 8.29166 39.254C8.98162 40.1315 9.80886 41.0122 10.7751 42.002C11.0001 42.2325 11.2342 42.4703 11.4747 42.7149C12.2391 43.4917 13.0697 44.3359 13.8889 45.2262Z" fill="#8EA6B4"></path>
+                </svg>
+                <h1 class="text-line1 text-white font-[matterr] font-bold text-[5vw] max-sm:text-[8vw] leading-none"></h1>
+                <h1 class="text-line2 text-white font-[matterr] font-bold text-[5vw] max-sm:text-[8vw] leading-none"></h1>
+                <h1 class="text-line3 text-white font-[matterr] font-bold text-[5vw] max-sm:text-[8vw] leading-none"></h1>
+                <h1 class="text-line4 text-white font-[matterr] font-bold text-[5vw] max-sm:text-[8vw] leading-none"></h1>
+                <h1 class="text-line5 text-white font-[matterr] font-bold text-[5vw] max-sm:text-[8vw] leading-none"></h1>
+            </div>
+            <div class="os-below-content absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[80%] w-1/2 max-sm:w-[90%] h-[12vw] max-sm:h-[20vw] text-white flex justify-between items-center px-10">
+                <p class="w-[56%] font-[matter] text-[1.6vw] max-sm:text-[3vw] leading-none">For that reason Blender is Free and Open Source software, forever.</p>
+                <button class="font-[matter] bg-blend-color-dodge text-md font-bold px-4 py-2 bg-[--blenderOrange] rounded-md text-black">Learn More</button>
+            </div>
+        </div>
+
+        <div class="blender-dev-section w-full h-[150vh] bg-[--darkColor] flex flex-col gap-[5rem] overflow-hidden max-sm:h-[100vh] max-sm:hidden">
+
+            <div class="bd-heading w-full h-[20%] pt-20 px-[5rem] ml-[3rem]">
+                <h1 class="text-white text-[9vw] font-[antique-olive] font-bold leading-none max-sm:text-[12vw] tracking-tighter ">Blender <br> Development</h1>
+            </div>
+            <div class="wrapper">
+                <!-- card 1-->
+          
+                <div class="bd-cards card1">
+                  <div class="bd-card-img">
+                    <img src="images/blender-dev-images/blender-dev-imagesbd-img1.jpg" alt="" loading="lazy" />
+                  </div>
+          
+                  <div class="bd-card-mid">
+                    <h1 class="textC">EEVEE Next Generation in Blender 4.2 LTS</h1>
+            
+                    <p class="textD">
+                      The next major iteration on the Blender viewport system is available
+                      in Blender.
+                    </p>
+                  </div>
+          
+                  <!-- card footer-->
+          
+                  <div class="card-footer">
+                    <a href="#"> View</a>
+          
+                    <i class="ri-arrow-right-line"></i>
+                  </div>
+                </div>
+                <!-- card 2-->
+          
+                <div class="bd-cards card2">
+                  <div class="bd-card-img">
+                    <img src="images/blender-dev-images/blender-dev-imagesbd-img2.jpg" alt="" loading="lazy" />
+                  </div>
+          
+                  <div class="bd-card-mid">
+                    <h1 class="textC">Brush Assets is out!</h1>
+                    <p class="textD">
+                      Brush Assets is merged into Blender and ready for the upcoming 4.3
+                      release.
+                    </p>
+                  </div>
+          
+                  <!-- card footer-->
+          
+                  <div class="card-footer">
+                    <a href="#"> View</a>
+          
+                    <i class="ri-arrow-right-line"></i>
+                  </div>
+                </div>
+          
+                <!--card 3-->
+          
+                <div class="bd-cards card3">
+                  <div class="bd-card-img">
+                    <img src="images/blender-dev-images/blender-dev-imagesbd-img3.jpg" alt="" loading="lazy" />
+                  </div>
+          
+                  <div class="bd-card-mid">
+                    <h1 class="textC">Blender 4.2 LTS Beta</h1>
+                    <p class="textD">
+                      Public call for testing Blender 4.2 LTS Beta. Let's make it a rock
+                      solid release!
+                    </p>
+                  </div>
+          
+          
+                  <!-- card footer-->
+          
+                  <div class="card-footer">
+                    <a href="#"> View</a>
+                    <i class="ri-arrow-right-line"></i>
+                  </div>
+                </div>
+          
+                <!--card4-->
+          
+                <div class="bd-cards card4">
+                  <div class="bd-card-img">
+                    <img src="images/blender-dev-images/blender-dev-imagesbd-img4.jpg" alt="" loading="lazy" />
+                  </div>
+          
+                  <div class="bd-card-mid">
+                    <h1 class="textC">Geometry Nodes Workshop: May 2024</h1>
+            
+                    <p class="textD">
+                      In May 2024, various Geometry Nodes contributors came together
+                    </p>
+                  </div>
+          
+                  <!-- card footer-->
+          
+                  <div class="card-footer">
+                    <a href="#"> View</a>
+          
+                    <i class="ri-arrow-right-line"></i>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+
+        <div class="industry-section w-full h-[180vh] relative bg-[--darkColor] overflow-hidden max-sm:h-[120vh] max-sm:hidden">
+            <div class="industry-content absolute left-[5%] top-[7%] text-white">
+                <h1 class="font-[antique-olive] text-[6vw] leading-[6vw] max-sm:text-[12vw] max-sm:leading-[12vw] font-bold">Part of <br>the industry</h1>
+                <p class="font-matter text-xl w-[70vw] mt-8 max-sm:text-[4.5vw] max-sm:leading-[6vw]">Blender is a member of ASWF, Khronos, Linux Foundation and OIN. It's also well supported by major hardware vendors such as AMD, Apple, Intel, and NVIDIA.</p>
+            </div>
+            <div class="carousel relative top-[40%] w-full h-[40%]  flex justify-center items-center">
+                <div class="moving-carousel">
+                    <div class="industry-image car-item1">
+                        <img data-scroll data-scroll-direction="horizontal" data-scroll-speed="-0.8" src="images/industry-images/ind-img1.jpg" alt="">
+                    </div>
+                    <div class="industry-image car-item2">
+                        <img data-scroll data-scroll-direction="horizontal" data-scroll-speed="-0.8" src="images/industry-images/ind-img2.jpg" alt="">
+                    </div>
+                    <div class="industry-image car-item3">
+                        <img data-scroll data-scroll-direction="horizontal" data-scroll-speed="-0.8" src="images/industry-images/ind-img5.jpeg" alt="">
+                    </div>
+                    <div class="industry-image car-item4">
+                        <img data-scroll data-scroll-direction="horizontal" data-scroll-speed="-0.8" src="images/industry-images/img4industry.jpg" alt="">
+                    </div>
+                    <div class="industry-image car-item5">
+                        <img data-scroll data-scroll-direction="horizontal" data-scroll-speed="-0.8" src="images/industry-images/img5industry.jpg" alt="">
+                    </div>
+                </div>
+        
+            </div>
+    
+        </div>
+        
+        <div class="eyn-section w-full h-screen max-sm:h-[100vh] bg-[--darkColor] text-white overflow-hidden max-sm:hidden">
+            <!-- <div class="eyn-heading text-8xl tracking-tighter w-full text-center py-10 text-black font-[gilroy] font-bold uppercase">Everything You Need</div> -->
+            <div class="eyn-heading text-8xl max-sm:text-[10vw] tracking-tighter w-full text-center py-10 text-white font-[antique-olive] font-bold">Everything You Need</div>
+            <!-- <marquee behavior="loop" direction="horizontal">
+                
+            </marquee> -->
+            <!-- <div class="eyn-heading rotate-[-90deg] absolute top-[63vw] left-[20vh] w-[100vw] h-[20vh] flex items-center justify-center">
+                <h1 class="text-center text-6xl uppercase">Everything You Need</h1>
+            </div> -->
+            <div class="eyn-circle absolute w-[200vw] h-[200vw] max-sm:w-[400vw] max-sm:h-[400vw] rounded-full top-[55%] max-sm:top-[50%] left-[130%] max-sm:left-[250%] -translate-x-1/2 -translate-y-1/2">
+                <div class="stripe strp1">
+                    <img src="images/everything-you-need-images/eyn-img1.jpg" alt="">
+                </div>
+                <div class="stripe strp2">
+                    <img src="images/everything-you-need-images/eyn-img2.jpg" alt="">
+                </div>
+                <div class="stripe strp3">
+                    <img src="images/everything-you-need-images/eyn-img3.jpg" alt="">
+                </div>
+                <div class="stripe strp4">
+                    <img src="images/everything-you-need-images/eyn-img4.jpg" alt="">
+                </div>
+                <div class="stripe strp5">
+                    <img src="images/everything-you-need-images/eyn-img5.jpg" alt="">
+                </div>
+                <div class="stripe strp6">
+                    <img src="images/everything-you-need-images/eyn-img6.jpg" alt="">
+                </div>
+            </div>
+            <div class="eyn-details relative w-[40vw] h-[57%] max-sm:w-[60vw] max-sm:h-[40%] top-[30%] left-[50%] max-sm:left-[40%] -translate-y-1/2 overflow-hidden">
+                <div class="eyn-dets justify-center eyn-dets1 flex flex-col px-12 max-sm:px-6">
+                    <h1>Cycles Render Engine</h1>
+                    <p>Cycles is Blender's robust, unbiased path-tracing engine, renowned for producing breathtakingly realistic renders. It boasts real-time viewport preview, versatile CPU and GPU rendering, PBR shaders, HDR lighting, and comprehensive VR rendering support.</p>
+
+                </div>
+                <div class="eyn-dets justify-center eyn-dets2 flex flex-col px-12 max-sm:px-6">
+                    <h1>Masterful Modeling</h1>
+                    <p>Blender provides a comprehensive suite of modeling tools that streamline the creation, transformation, and refinement of models. Featuring full N-Gon support, advanced edge operations, multi-resolution and dynamic subdivision, and Python scripting for custom tools and add-ons, it caters to every modeling requirement with exceptional finesse.</p>
+                </div>
+                <div class="eyn-dets justify-center eyn-dets3 flex flex-col px-12 max-sm:px-6">
+                    <h1>VFX Tracking</h1>
+                    <p>Blender, lauded as "probably the best tracker in the market" by VFX professionals, delivers production-ready camera and object tracking with effortless import, masking, and real-time 3D scene viewing. Featuring auto and manual tracking, advanced camera reconstruction, and support for planar tracking and tripod solvers, it's an indispensable tool for VFX.
+                    </p>
+                </div>
+                <div class="eyn-dets justify-center eyn-dets4 flex flex-col px-12 max-sm:px-6">
+                    <h1>Animation & Rigging</h1>
+                    <p>Blender's powerful rigging and animation tools offer high-quality envelope, skeleton, and automatic skinning, complemented by B-spline interpolated bones, a curve editor, and custom bone shapes for efficient input and sound synchronization.</p>
+                </div>
+                <div class="eyn-dets justify-center eyn-dets5 flex flex-col px-12 max-sm:px-6">
+                    <h1>Story Art</h1>
+                    <p>Draw directly in a 3D viewport for enhanced storyboard and 2D artistry, featuring 2D-3D integration, full animation support with onion skinning, customizable layers and colors, and the ability to sculpt brush strokes and parent them to 3D objects.</p>
+                </div>
+                <div class="eyn-dets justify-center eyn-dets6 flex flex-col px-12 max-sm:px-6">
+                    <h1>Tailor Blender to Your Needs</h1>
+                    <p>Blender's flexible Python interface allows you to customize layouts, colors, and fonts, support high-resolution screens, create personal tools and add-ons, draw over the OpenGL viewport, and connect with Blender's Render API.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="eyn-section-mbl w-full  flex-col items-center justify-center gap-12 py-6 pb-12 mt-[5rem] hidden max-sm:flex overflow-hidden">
+            <marquee behavior="" direction="horizontal">
+                <h1 class="text-5xl text-white font-[antique-olive] text-center">Everything You Need</h1>
+            </marquee>
+            <div class="eyn-mbl-cards">
+                <div class="eyn-top">
+                    <img src="images/everything-you-need-images/eyn-img1.jpg" alt="">
+                </div>
+                <div class="eyn-btm">
+                    <h1>Cycles Render Engine</h1>
+                    <p>Cycles is Blender's robust, unbiased path-tracing engine, renowned for producing breathtakingly realistic renders. It boasts real-time viewport preview, versatile CPU and GPU rendering, PBR shaders, HDR lighting, and comprehensive VR rendering support.</p>
+                </div>
+            </div>
+            <div class="eyn-mbl-cards">
+                <div class="eyn-top">
+                    <img src="images/everything-you-need-images/eyn-img2.jpg" alt="">
+                </div>
+                <div class="eyn-btm">
+                    <h1>Masterful Modeling</h1>
+                    <p>Blender provides a comprehensive suite of modeling tools that streamline the creation, transformation, and refinement of models. Featuring full N-Gon support, advanced edge operations, multi-resolution and dynamic subdivision, and Python scripting for custom tools and add-ons, it caters to every modeling requirement with exceptional finesse.</p>
+                </div>
+            </div>
+            <div class="eyn-mbl-cards">
+                <div class="eyn-top">
+                    <img src="images/everything-you-need-images/eyn-img3.jpg" alt="">
+                </div>
+                <div class="eyn-btm">
+                    <h1>VFX Tracking</h1>
+                    <p>Blender, lauded as "probably the best tracker in the market" by VFX professionals, delivers production-ready camera and object tracking with effortless import, masking, and real-time 3D scene viewing. Featuring auto and manual tracking, advanced camera reconstruction, and support for planar tracking and tripod solvers, it's an indispensable tool for VFX.</p>
+                </div>
+            </div>
+            <div class="eyn-mbl-cards">
+                <div class="eyn-top">
+                    <img src="images/everything-you-need-images/eyn-img4.jpg" alt="">
+                </div>
+                <div class="eyn-btm">
+                    <h1>Animation & Rigging</h1>
+                    <p>Blender's powerful rigging and animation tools offer high-quality envelope, skeleton, and automatic skinning, complemented by B-spline interpolated bones, a curve editor, and custom bone shapes for efficient input and sound synchronization.</p>
+                </div>
+            </div>
+            <div class="eyn-mbl-cards">
+                <div class="eyn-top">
+                    <img src="images/everything-you-need-images/eyn-img5.jpg" alt="">
+                </div>
+                <div class="eyn-btm">
+                    <h1>Story Art</h1>
+                    <p>Draw directly in a 3D viewport for enhanced storyboard and 2D artistry, featuring 2D-3D integration, full animation support with onion skinning, customizable layers and colors, and the ability to sculpt brush strokes and parent them to 3D objects.</p>
+                </div>
+            </div>
+            <div class="eyn-mbl-cards">
+                <div class="eyn-top">
+                    <img src="images/everything-you-need-images/eyn-img6.jpg" alt="">
+                </div>
+                <div class="eyn-btm">
+                    <h1>Tailor Blender</h1>
+                    <p>Blender's flexible Python interface allows you to customize layouts, colors, and fonts, support high-resolution screens, create personal tools and add-ons, draw over the OpenGL viewport, and connect with Blender's Render API.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ecosystem-section relative w-full h-[120vh] flex justify-center items-center bg-[url(images/eco-org-img.jpg)] overflow-hidden max-sm:h-[70vh]">
+            <div class="eco-overlay w-full h-full absolute"></div>
+            <div class="eco-container z-[20] relative w-[70%] h-[80%] text-white flex items-center justify-center flex-col max-sm:w-[100%] max-sm:h-[100%]">
+                <h1 class="pl-[10rem] max-sm:pl-0">let's make</h1>
+                <h1 >great work</h1>
+                <h1 class="pl-[20rem] max-sm:pl-0">together</h1>
+                <button class="get-in-touch absolute top-1/2 right-[5%] max-sm:right-[33%] max-sm:top-[70%] -translate-y-1/2 font-[matter] bg-white text-xl font-bold text-black px-6 py-4 max-sm:text-sm rounded-full overflow-hidden">Get in Touch</button>
+            </div>
+        </div>
+
+        <div class="peoples-section relative w-full h-[120vh] max-sm:h-[80vh] bg-[--darkColor] overflow-hidden flex items-center justify-center max-sm:hidden">
+            <img class="uppr-img h-1/2 w-full z-[999] absolute top-0" src="images/blender-upprimg.png" alt="">
+            <img class="btm-img h-1/2 w-full z-[999] absolute top-[50%]" src="images/blender-btmimg.png" alt="">
+
+            <div class="ppl-container top-0 left-0 absolute w-full h-full overflow-hidden flex items-center justify-center">
+                <div class="ppl-heading absolute top-[12%]">
+                    <h1 class="text-8xl max-sm:text-[7vw] font-[antique-olive] text-[--whiteColor] mt-10">It's about people.</h1>
+    
+                </div>
+                <div class="people ppl1">
+                    <div class="ppl-img">
+                        <img src="images/people-img/pplimg1.jpg" alt="">
+                    </div>
+                    <h2>Connecting Blender <br>Community</h2>
+                </div>
+                <div class="people ppl2">
+                    <div class="ppl-img">
+                        <img src="images/people-img/pplimg2.jpg" alt="">
+                    </div>
+                    <h2>Showcasing Blender at <br>industry events</h2>
+                </div>
+                <div class="people ppl3">
+                    <div class="ppl-img">
+                        <img src="images/people-img/pplimg3.jpg" alt="">
+                    </div>
+                    <h2>Creating worlds at <br>BCON19</h2>
+                </div>
+                <div class="people ppl4">
+                    <div class="ppl-img">
+                        <img src="images/people-img/pplimg4.jpg" alt="">
+                    </div>
+                    <h2>The demo scene is back <br>with Nodevember</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="ppl-section-mbl w-full h-[40vh] flex-col justify-center items-center hidden gap-6 max-sm:flex">
+
+            <h1 class="text-white text-3xl font-[antique-olive]">It's About People</h1>
+            <div class="mbl-peoples">
+                <div class="mbl-ppl-img z-[1]">
+                    <img src="images/people-img/pplimg1.jpg" alt="">
+                </div>
+                <div class="mbl-ppl-img z-[2]">
+                    <img src="images/people-img/pplimg2.jpg" alt="">
+                </div>
+                <div class="mbl-ppl-img z-[3]">
+                    <img src="images/people-img/pplimg3.jpg" alt="">
+                </div>
+                <div class="mbl-ppl-img z-[4]">
+                    <img src="images/people-img/pplimg4.jpg" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer w-full h-full relative bg-[#DADADA] max-sm:hidden">
+
+            <div class="footer-anime-div w-full h-[5rem] absolute top-0 left-0 overflow-hidden">
+                <div class="footer-arc absolute top-0 left-1/2 -translate-x-1/2  w-[500vw] h-[500vw] bg-[#DADADA] rounded-full rotate-[180deg]"></div>
+            </div>
+            
+            <div class="footer-heading" id="f-h1">
+                <div class="footer-number" id="footer-number1" style="display: inline-block;">
+    
+                    <h1 class="char1">1</h1>
+                </div>
+                <div class="f-heading" id="f-heading1" style="display: inline-block;">
+                    <div class="char1" style="display: inline-block;">A</div>
+                    <div class="char1" style="display: inline-block;">b</div>
+                    <div class="char1" style="display: inline-block;">o</div>
+                    <div class="char1" style="display: inline-block;">u</div>
+                    <div class="char1" style="display: inline-block;">t</div>               
+                </div>   
+           </div>     
+       
+            <div class="footer-section">
+                <div id="footer-stripes" >
+                    <div id="footer-subsection1" class="footer-subsection">
+                        
+                        <div class="footer-ss1"></div>
+                        <span class="footer-content" id="fc1">
+                            <div class="f-c1">A</div>
+                            <div class="f-c2">
+                                <a class="f-links" href="#">Blender Foundation</a></div>
+                            </span>
+                        <div class="footer-ss1"></div>
+                        <span class="footer-content" id="fc1">
+                            <div class="f-c1">B</div>
+                            <div class="f-c2">
+                                <a class="f-links" href="#">Blender Institute</a></div>
+                        </span>
+                        <div class="footer-ss1"></div>
+                        <span class="footer-content" id="fc1">
+                            <div class="f-c1">C</div>
+                            <div class="f-c2">
+                                <a class="f-links" href="#">Logo & Trademark</a>
+                            </div>
+                        </span>
+                        <div class="footer-ss1"></div>
+                        <span class="footer-content" id="fc1">
+                            <div class="f-c1">D</div>
+                            <div class="f-c2">
+                                <a class="f-links" href="#">License</a></div>
+                        </span>
+                        <div class="footer-ss1"></div>
+                        <span class="footer-content" id="fc1">
+                            <div class="f-c1">E</div>
+                            <div class="f-c2">
+                                <a class="f-links" href="#">Credits</a></div>
+                        </span>
+                        <div class="footer-ss1"></div>
+                        <span class="footer-content" id="fc1">
+                            <div class="f-c1">F</div>
+                            <div class="f-c2">
+                                <a class="f-links" href="#">Privacy Policy</a></div>
+                        </span>
+                        <div class="footer-ss1"></div>
+           
+                    </div>
+    
+                </div>
+            </div> 
+    
+            <div class="footer-heading" id="f-h2">
+                <div class="footer-number" id="footer-number2" style="display: inline-block;">
+    
+                    <h1 class="char2">2</h1>
+                </div>
+                <div class="f-heading" id="f-heading2" style="display: inline-block;">
+                    <div class="char2" style="display: inline-block;">D</div>
+                    <div class="char2" style="display: inline-block;">e</div>
+                    <div class="char2" style="display: inline-block;">v</div>
+                    <div class="char2" style="display: inline-block;">e</div>
+                    <div class="char2" style="display: inline-block;">l</div>
+                    <div class="char2" style="display: inline-block;">o</div>
+                    <div class="char2" style="display: inline-block;">p</div>
+                    <div class="char2" style="display: inline-block;">e</div>
+                    <div class="char2" style="display: inline-block;">r</div>
+    
+                </div>   
+           </div>     
+     
+    
+    
+            <div class="footer-section">
+                <div id="footer-stripes" >
+                    <div id="footer-subsection2" class="footer-subsection">
+                        <div class="footer-ss2"></div>
+                        <span class="footer-content" id="fc2">
+                            <div class="f-c21">A</div>
+                            <div class="f-c22">
+                                <a class="f-links" href="#">Get Started</a></div>
+                            </span>
+                        <div class="footer-ss2"></div>
+                        <span class="footer-content" id="fc2">
+                            <div class="f-c21">B</div>
+                            <div class="f-c22">
+                                <a class="f-links" href="#">Projects</a></div>
+                            </span>
+                        <div class="footer-ss2"></div>
+                        <span class="footer-content" id="fc2">
+                            <div class="f-c21">C</div>
+                            <div class="f-c22">
+                                <a class="f-links" href="#">Blog</a></div>
+                            </span>
+                        <div class="footer-ss2"></div>
+                        <span class="footer-content" id="fc2">
+                            <div class="f-c21">D</div>
+                            <div class="f-c22">
+                                <a class="f-links" href="#">Forum</a></div>
+                            </span>
+                        <div class="footer-ss2"></div>
+                        <span class="footer-content" id="fc2">
+                            <div class="f-c21">E</div>
+                            <div class="f-c22">
+                                <a class="f-links" href="#">Python API</a></div>
+                            </span>
+                        <div class="footer-ss2"></div>
+                        <span class="footer-content" id="fc2">
+                            <div class="f-c21">F</div>
+                            <div class="f-c22">
+                                <a class="f-links" href="#">Docs</a></div>
+                            </span>
+                        <div class="footer-ss2"></div>
+        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-heading" id="f-h3">
+                <div class="footer-number" id="footer-number3" style="display: inline-block;">
+    
+                    <h1 class="char3">3</h1>
+                </div>
+                <div class="f-heading" id="f-heading3" style="display: inline-block;">
+                    <div class="char3" style="display: inline-block;">o</div>
+                    <div class="char3" style="display: inline-block;">r</div>
+                    <div class="char3" style="display: inline-block;">g</div>
+                    <div class="char3" style="display: inline-block;">a</div>
+                    <div class="char3" style="display: inline-block;">n</div>
+                    <div class="char3" style="display: inline-block;">i</div>
+                    <div class="char3" style="display: inline-block;">z</div>
+                    <div class="char3" style="display: inline-block;">a</div>
+                    <div class="char3" style="display: inline-block;">t</div>
+                    <div class="char3" style="display: inline-block;">i</div>
+                    <div class="char3" style="display: inline-block;">o</div>
+                    <div class="char3" style="display: inline-block;">n</div>
+    
+                </div>   
+           </div>     
+            
+    
+            <div class="footer-section">
+                <div id="footer-stripes" >
+        
+                    <div id="footer-subsection3" class="footer-subsection">
+                        <div class="footer-ss3"></div>
+                            <span class="footer-content" id="fc3">
+                                <div class="f-c31">A</div>
+                                <div class="f-c32">
+                                    <a class="f-links" href="#">Dashboard</a></div>
+                                </span>
+                        
+                        <div class="footer-ss3"></div>
+                            <span class="footer-content" id="fc3">
+                                <div class="f-c31">B</div>
+                                <div class="f-c32">
+                                    <a class="f-links" href="#">Development</a></div>
+                                </span>
+                        
+                        <div class="footer-ss3"></div>
+                            <span class="footer-content" id="fc3">
+                                <div class="f-c31">C</div>
+                                <div class="f-c32">
+                                    <a class="f-links" href="#">Documentation</a></div>
+                                </span>
+                        
+                        <div class="footer-ss3"></div>
+                            <span class="footer-content" id="fc3">
+                                <div class="f-c31">D</div>
+                                <div class="f-c32">
+                                    <a class="f-links" href="#">Education</a></div>
+                                </span>
+                        
+                        <div class="footer-ss3"></div>
+                            <span class="footer-content" id="fc3">
+                                <div class="f-c31">E</div>
+                                <div class="f-c32">
+                                    <a class="f-links" href="#">Jobs</a></div>
+                                </span>
+                        
+                        <div class="footer-ss3"></div>
+                            <span class="footer-content" id="fc3">
+                                <div class="f-c31">F</div>
+                                <div class="f-c32">
+                                    <a class="f-links" href="#">News</a></div>
+                                </span>
+                        
+                        <div class="footer-ss3">
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-heading" id="f-h4">
+                <div class="footer-number" id="footer-number4" style="display: inline-block;">
+    
+                    <h1 class="char4">4</h1>
+                </div>
+                <div class="f-heading" id="f-heading4" style="display: inline-block;">
+                    <div class="char4" style="display: inline-block;">s</div>
+                    <div class="char4" style="display: inline-block;">u</div>
+                    <div class="char4" style="display: inline-block;">p</div>
+                    <div class="char4" style="display: inline-block;">p</div>
+                    <div class="char4" style="display: inline-block;">o</div>
+                    <div class="char4" style="display: inline-block;">r</div>
+                    <div class="char4" style="display: inline-block;">t</div>
+                </div> 
+                 
+           </div>   
+     
+            <div class="footer-section">
+                <div id="footer-stripes" >
+        
+                    <div id="footer-subsection4" class="footer-subsection">
+                        <div class="footer-ss4"></div>
+                            <span class="footer-content" id="fc4">
+                                <div class="f-c41">A</div>
+                                <div class="f-c42">
+                                    <a class="f-links" href="#">Manual</a></div></span>
+                        
+                        <div class="footer-ss4"></div>
+                            <span class="footer-content" id="fc4">
+                                <div class="f-c41">B</div>
+                                <div class="f-c42">
+                                    <a class="f-links" href="#">Community</a></div></span>
+                        
+                        <div class="footer-ss4"></div>
+                            <span class="footer-content" id="fc4">
+                                <div class="f-c41">C</div>
+                                <div class="f-c42">
+                                    <a class="f-links" href="#">FAQ</a></div></span>
+                        
+                        <div class="footer-ss4"></div>
+                            <span class="footer-content" id="fc4">
+                                <div class="f-c41">D</div>
+                                <div class="f-c42">
+                                    <a class="f-links" href="#">Press Releases</a></div></span>
+                     
+                        <div class="footer-ss4"></div>
+                            <span class="footer-content" id="fc4">
+                                <div class="f-c41">E</div>
+                                <div class="f-c42">
+                                    <a class="f-links" href="#">User Stories</a></div></span>
+                       
+                        <div class="footer-ss4"></div>
+                            <span class="footer-content" id="fc4">
+                                <div class="f-c41">F</div>
+                                <div class="f-c42">
+                                    <a class="f-links" href="#">Blender Conference</a></div></span>
+                        
+                        <div class="footer-ss4"></div>
+           
+                    </div>        
+                </div>
+                
+             </div>
+       
+        </div>
+
+
+        <div class="main-footer-mbl w-full relative bg-[#dadada] justify-center flex-col gap-6 py-12 hidden overflow-hidden max-sm:flex">
+            <div class="footer-divs flex justify-center items-center flex-col">
+                <h1 class="footer-headings">ABOUT</h1>
+                <ol class="footer-items">
+                    <li>BLENDER FOUNDATION</li>
+                    <li>BLENDER INSTITUTE</li>
+                    <li>LOGO AND TRADEMARK</li>
+                    <li>LICENSE</li>
+                    <li>CREDITS</li>
+                    <li>PRIVACY POLICY</li>
+                </ol>
+            </div>
+            <div class="footer-divs flex justify-center items-center flex-col">
+                <h1 class="footer-headings">DEVELOPER</h1>
+                <ol class="footer-items">
+                    <li>GET STARTED</li>
+                    <li>PROJECTS</li>
+                    <li>BLOG</li>
+                    <li>FORUM</li>
+                    <li>PYTHON API</li>
+                    <li>DOCS</li>
+                </ol>
+            </div>
+            <div class="footer-divs flex justify-center items-center flex-col">
+                <h1 class="footer-headings">ORGANIZATION</h1>
+                <ol class="footer-items">
+                    <li>DASHBOARD</li>
+                    <li>DEVELOPMENT</li>
+                    <li>DOCUMENTATION</li>
+                    <li>EDUCATION</li>
+                    <li>JOBS</li>
+                    <li>NEWS</li>
+                </ol>
+            </div>
+            <div class="footer-divs flex justify-center items-center flex-col">
+                <h1 class="footer-headings">SUPPORT</h1>
+                <ol class="footer-items">
+                    <li>MANUAL</li>
+                    <li>COMMUNITY</li>
+                    <li>FAQ</li>
+                    <li>PRESS RELEASES</li>
+                    <li>USER STORIES</li>
+                    <li>NEWS</li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- GSAP TEXT PLUGIN CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+
+    <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EasePack.min.js"></script>
+
+    <!-- SCROLLTRIGGER CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- THREE JS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+
+    <!-- LOCOMOTIVE CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+
+    <!-- SHERY JS CDN -->
+    <script  type="text/javascript"  src="https://unpkg.com/sheryjs/dist/Shery.js"></script>
+
+    <!-- LINKING JS FILE -->
+    <script src="script.js"></script>
+</body>
+</html>
